@@ -26,7 +26,7 @@ Placeholders:
 # User expressions
 You can create your own expression shortcut in config.yml using our Expression Expansion Language (EEL):
 
-`add_and_multiply: "<expr_add:'<arg1>':'<expr_mul:\\'<arg2>\\':\\'<arg3>\\'>'>"` - The same as `arg1 + (arg2 * arg3)`. So, `<expr_user_add_and_multiply:2:3:4>` expands to `<expr_add:2:'<expr_mul:3:4>'>`, which evaluates to `2 + (3 * 4) = 14`
+`add_and_multiply: "<expr_add:'<arg1>':'<expr_mul:\\'<arg2>\\':\\'<arg3>\\'>'>"` means `<expr_user:add_and_multiply:arg1:arg2:arg3>` will be evaluated to `arg1 + (arg2 * arg3)`. So, `<expr_user:add_and_multiply:2:3:4>` evaluates to `<expr_add:2:'<expr_mul:3:4>'>`, which is `2 + (3 * 4) = 14`
 
 ### Example user expressions
 - `<expr_user:remove_first:s:n>` - Remove `n` first characters from `s` (`hello`, `2` -> `llo`), EEL: `  remove_first: "<expr_substring:'<arg1>':'<arg2>':'<expr_length:\\'<arg1>\\'>'>"`
