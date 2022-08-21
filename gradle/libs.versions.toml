@@ -1,0 +1,51 @@
+[versions]
+adventure = "4.11.0"
+junit = "5.8.1"
+
+[libraries.miniplaceholders]
+group = "com.github.4drian3d"
+name = "MiniPlaceholders"
+version = "1.1.1"
+
+[libraries.velocity-api]
+group = "com.velocitypowered"
+name = "velocity-api"
+version = "3.1.1"
+
+[libraries.paper-api]
+group = "io.papermc.paper"
+name = "paper-api"
+version = "1.18.2-R0.1-SNAPSHOT"
+
+[libraries.adventure-minimessage]
+group = "net.kyori"
+name = "adventure-text-minimessage"
+version = { ref = "adventure" }
+
+[libraries.adventure-serializer-plain]
+group = "net.kyori"
+name = "adventure-text-serializer-plain"
+version = { ref = "adventure" }
+
+[libraries.snakeyaml]
+group = "org.yaml"
+name = "snakeyaml"
+version = "1.30"
+
+[libraries.junit-jupiter-api]
+group = "org.junit.jupiter"
+name = "junit-jupiter-api"
+version = { ref = "junit" }
+
+[libraries.junit-jupiter-engine]
+group = "org.junit.jupiter"
+name = "junit-jupiter-engine"
+version = { ref = "junit" }
+
+[bundles]
+minimessage = ["adventure-minimessage", "adventure-serializer-plain"]
+
+[plugins]
+shadow = { id = "com.github.johnrengelman.shadow", version = "7.1.2" }
+pluginyml = { id = "net.minecrell.plugin-yml.bukkit", version = "0.5.1" }
+runpaper = { id = "xyz.jpenilla.run-paper", version = "1.0.6" }

@@ -1,7 +1,8 @@
 dependencies {
     compileOnly(project(":expressions-common"))
-    compileOnly("com.velocitypowered:velocity-api:3.1.2-SNAPSHOT")
-    annotationProcessor("com.velocitypowered:velocity-api:3.1.2-SNAPSHOT")
+    compileOnly(libs.velocity.api)
+    compileOnly(libs.miniplaceholders)
+    annotationProcessor(libs.velocity.api)
 }
 
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
