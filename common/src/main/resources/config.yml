@@ -1,0 +1,5 @@
+userExpressions:
+  remove_first: "<expr_substring:'<arg1>':'<arg2>':'<expr_length:\\'<arg1>\\'>'>"
+  remove_last: "<expr_substring:'<arg1>':0:'<expr_sub:\\'<expr_length:\\\\\\'<arg1>\\\\\\'>\\':\\'<arg2>\\'>'>"
+  decimals: "<expr_format:'<expr_concat:\\'%.0\\':\\'<arg2>\\':\\'f\\'>':'<arg1>'>"
+  pad_integer: "<expr_format:'<expr_concat:\\'%0\\':\\'<arg1>\\':\\'d\\'>':'<arg2>'>"

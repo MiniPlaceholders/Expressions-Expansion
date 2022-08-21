@@ -1,7 +1,9 @@
-rootProject.name = "example-parent"
+rootProject.name = "expressions-parent"
 
-include("example-paper")
-include("example-velocity")
+include("expressions-paper")
+include("expressions-velocity")
+include("expressions-common")
 
-project(":example-velocity").projectDir = file("velocity")
-project(":example-paper").projectDir = file("paper")
+project(":expressions-velocity").projectDir = file("velocity")
+project(":expressions-paper").projectDir = file("paper")
+project(":expressions-common").projectDir = file("common")

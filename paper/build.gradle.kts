@@ -4,15 +4,16 @@ plugins {
 }
 
 dependencies {
+    compileOnly(project(":expressions-common"))
     compileOnly("io.papermc.paper:paper-api:1.18.2-R0.1-SNAPSHOT")
 }
 
 val pluginVersion = version
 
 bukkit {
-    main = "me.dreamerzero.example.paper.PaperPlugin"
+    main = "me.sliman4.expressions.paper.PaperPlugin"
     apiVersion = "1.18"
-    authors = listOf("4drian3d")
+    authors = listOf("Sliman4")
     depend = listOf("MiniPlaceholders")
     version = pluginVersion as String
 }
