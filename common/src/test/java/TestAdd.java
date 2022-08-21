@@ -2,7 +2,7 @@ import me.sliman4.expressions.Configuration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class TestAdd {
+class TestAdd {
     @BeforeEach
     public void init() {
         Utils.registerPlaceholders(new Configuration());

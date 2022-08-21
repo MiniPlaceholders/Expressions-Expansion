@@ -3,7 +3,7 @@ import me.sliman4.expressions.Expressions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class TestMin {
+class TestMin {
     @BeforeEach
     public void init() {
         Utils.registerPlaceholders(new Configuration());

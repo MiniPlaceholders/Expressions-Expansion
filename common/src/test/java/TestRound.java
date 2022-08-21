@@ -3,7 +3,7 @@ import me.sliman4.expressions.Expressions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class TestRound {
+class TestRound {
     @BeforeEach
     public void init() {
         Utils.registerPlaceholders(new Configuration());

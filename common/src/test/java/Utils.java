@@ -11,7 +11,7 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class Utils {
+class Utils {
     public static void assertExpands(String placeholderRequest, String expectedResult) {
         Component component = MiniMessage.miniMessage().deserialize(placeholderRequest, MiniPlaceholders.getGlobalPlaceholders());
         String actualResult = PlainTextComponentSerializer.plainText().serialize(component);
