@@ -27,6 +27,6 @@ class Utils {
         } catch (NoSuchFieldException | IllegalAccessException exception) {
             exception.printStackTrace();
         }
-        Expressions.registerPlaceholders(configuration);
+        Expressions.registerPlaceholders(configuration, new TestPlatform());
     }
 }

@@ -21,6 +21,8 @@ Placeholders:
 - `<expr_length:s>` - Get length of the string (`hello` -> `5`)
 - `<expr_format:format:arg1:arg2:...:argX>` - Format a string using [Java String.format()](https://www.javatpoint.com/java-string-format). It may be useful for [user expressions](#User-expressions)
 - `<expr_if:o1:o2:r1:r2>` - Displays `r1` if `o1` and `o2` are same. Otherwise displays `rs`.
+- `<expr_player:uuid:text>` - Sets `text` placeholders for a player with `uuid`.
+- `<expr_player:name:text>` - Sets `text` placeholders for a player with `name`.
 - `<expr_user:name:arg1:arg2:...:argX>` - Expand to a [User expression](#User-expressions)
 
 # User expressions

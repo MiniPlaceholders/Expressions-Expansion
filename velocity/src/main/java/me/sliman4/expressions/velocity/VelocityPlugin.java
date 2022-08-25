@@ -7,7 +7,9 @@ import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.plugin.Dependency;
 
 import com.velocitypowered.api.plugin.annotation.DataDirectory;
+import com.velocitypowered.api.proxy.ProxyServer;
 import me.sliman4.expressions.Expressions;
+import me.sliman4.expressions.Platform;
 import org.slf4j.Logger;
 
 import java.nio.file.Path;
@@ -24,17 +26,19 @@ import java.nio.file.Path;
 public final class VelocityPlugin {
     private final Logger logger;
     private final Path dataFolder;
+    private final Platform platform;
 
     @Inject
-    public VelocityPlugin(Logger logger, @DataDirectory final Path dataFolder) {
+    public VelocityPlugin(Logger logger, ProxyServer server, @DataDirectory final Path dataFolder) {
         this.logger = logger;
         this.dataFolder = dataFolder;
+        this.platform = new VelocityPlatform(server);
     }
 
     @Subscribe
     public void onProxyInitialize(ProxyInitializeEvent event) {
         logger.info("Starting Expressions Expansion for Velocity");
 
-        Expressions.initialize(dataFolder.toFile(), getClass().getClassLoader().getResourceAsStream("config.yml"));
+        Expressions.initialize(dataFolder.toFile(), getClass().getClassLoader().getResourceAsStream("config.yml"), platform);
     }
 }

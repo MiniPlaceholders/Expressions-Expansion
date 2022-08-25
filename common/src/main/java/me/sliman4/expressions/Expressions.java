@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Expressions {
-    public static void initialize(File dataFolder, InputStream configYml) {
+    public static void initialize(File dataFolder, InputStream configYml, Platform platform) {
         Configuration config;
         try {
             if (!dataFolder.exists()) {
@@ -38,10 +38,10 @@ public class Expressions {
             return;
         }
 
-        registerPlaceholders(config);
+        registerPlaceholders(config, platform);
     }
 
-    public static void registerPlaceholders(Configuration config) {
+    public static void registerPlaceholders(Configuration config, Platform platform) {
         Expansion.Builder builder = Expansion.builder("expr");
         List<Expression> expressions = Arrays.asList(
                 new ExprAdd(),
@@ -57,6 +57,7 @@ public class Expressions {
                 new ExprMod(),
                 new ExprMul(),
                 new ExprNeg(),
+                new ExprPlayer(platform),
                 new ExprRandom(),
                 new ExprRound(),
                 new ExprSub(),
