@@ -1,5 +1,5 @@
 plugins {
-	java
+    java
     alias(libs.plugins.shadow)
 }
 
@@ -18,7 +18,7 @@ dependencies {
 
 subprojects {
     repositories {
-		mavenCentral()
+        mavenCentral()
         maven("https://jitpack.io")
         maven("https://papermc.io/repo/repository/maven-public/")
     }
