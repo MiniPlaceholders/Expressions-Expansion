@@ -1,3 +1,8 @@
+repositories {
+    mavenCentral()
+    maven("https://jitpack.io")
+}
+
 dependencies {
     compileOnly(libs.bundles.minimessage)
     compileOnly(libs.snakeyaml)

@@ -13,15 +13,8 @@ allprojects {
 dependencies {
     shadow(project(":expressions-velocity"))
     shadow(project(":expressions-paper"))
+    shadow(project(":expressions-krypton"))
     shadow(project(":expressions-common"))
-}
-
-subprojects {
-    repositories {
-        mavenCentral()
-        maven("https://jitpack.io")
-        maven("https://papermc.io/repo/repository/maven-public/")
-    }
 }
 
 tasks {

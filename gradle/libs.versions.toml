@@ -1,11 +1,12 @@
 [versions]
 adventure = "4.11.0"
 junit = "5.8.1"
+krypton = "0.60.3"
 
 [libraries.miniplaceholders]
 group = "com.github.4drian3d"
 name = "MiniPlaceholders"
-version = "1.1.1"
+version = "1.3.0"
 
 [libraries.velocity-api]
 group = "com.velocitypowered"
@@ -41,6 +42,16 @@ version = { ref = "junit" }
 group = "org.junit.jupiter"
 name = "junit-jupiter-engine"
 version = { ref = "junit" }
+
+[libraries.krypton-api]
+group = "org.kryptonmc"
+name = "krypton-api"
+version = { ref = "krypton" }
+
+[libraries.krypton-annotation-processor]
+group = "org.kryptonmc"
+name = "krypton-annotation-processor"
+version = { ref = "krypton" }
 
 [bundles]
 minimessage = ["adventure-minimessage", "adventure-serializer-plain"]

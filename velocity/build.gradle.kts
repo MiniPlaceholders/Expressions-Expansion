@@ -1,3 +1,8 @@
+repositories {
+    maven("https://papermc.io/repo/repository/maven-public/")
+    maven("https://jitpack.io")
+}
+
 dependencies {
     compileOnly(project(":expressions-common"))
     compileOnly(libs.velocity.api)
