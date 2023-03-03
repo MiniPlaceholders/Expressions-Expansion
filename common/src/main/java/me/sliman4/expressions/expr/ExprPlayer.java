@@ -1,13 +1,12 @@
 
 package me.sliman4.expressions.expr;
 
-import me.dreamerzero.miniplaceholders.api.Expansion;
-import me.dreamerzero.miniplaceholders.api.MiniPlaceholders;
+import io.github.miniplaceholders.api.Expansion;
+import io.github.miniplaceholders.api.MiniPlaceholders;
 import me.sliman4.expressions.Expression;
 import me.sliman4.expressions.Platform;
 import me.sliman4.expressions.Utils;
 import net.kyori.adventure.audience.Audience;
-import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.minimessage.tag.Tag;
 import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver;

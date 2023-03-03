@@ -9,6 +9,6 @@ public final class PaperPlugin extends JavaPlugin {
     public void onEnable() {
         getLogger().info("Starting Expressions Expansion for Paper");
 
-        Expressions.initialize(getDataFolder(), getResource("config.yml"), new PaperPlatform());
+        Expressions.initialize(getDataFolder().toPath(), getResource("config.yml"), new PaperPlatform());
     }
 }

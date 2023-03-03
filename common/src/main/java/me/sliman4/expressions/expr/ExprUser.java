@@ -1,7 +1,7 @@
 
 package me.sliman4.expressions.expr;
 
-import me.dreamerzero.miniplaceholders.api.Expansion;
+import io.github.miniplaceholders.api.Expansion;
 import me.sliman4.expressions.Configuration;
 import me.sliman4.expressions.Expression;
 import me.sliman4.expressions.Utils;

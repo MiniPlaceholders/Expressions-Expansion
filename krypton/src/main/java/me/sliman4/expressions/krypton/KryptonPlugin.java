@@ -38,6 +38,6 @@ public final class KryptonPlugin {
     public void onProxyInitialize(ServerStartEvent event) {
         logger.info("Starting Expressions Expansion for Krypton");
 
-        Expressions.initialize(dataFolder.toFile(), getClass().getClassLoader().getResourceAsStream("config.yml"), platform);
+        Expressions.initialize(dataFolder, getClass().getClassLoader().getResourceAsStream("config.yml"), platform);
     }
 }

@@ -1,27 +1,27 @@
 package me.sliman4.expressions;
 
-import me.dreamerzero.miniplaceholders.api.Expansion;
+import io.github.miniplaceholders.api.Expansion;
 import me.sliman4.expressions.expr.*;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
 
 public class Expressions {
-    public static void initialize(File dataFolder, InputStream configYml, Platform platform) {
+    public static void initialize(Path dataFolder, InputStream configYml, Platform platform) {
         Configuration config;
         try {
-            if (!dataFolder.exists()) {
-                dataFolder.mkdir();
+            if (Files.notExists(dataFolder)) {
+                Files.createDirectory(dataFolder);
             }
-            File configFile = new File(dataFolder, "config.yml");
-            if (!configFile.exists()) {
-                Files.copy(configYml, configFile.toPath());
+            Path configFile = dataFolder.resolve("config.yml");
+            if (Files.notExists(configFile)) {
+                Files.copy(configYml, configFile);
             }
             Yaml yaml = new Yaml(new Constructor() {
                 @Override
@@ -32,7 +32,7 @@ public class Expressions {
                     return super.getClassForName(name);
                 }
             });
-            config = yaml.loadAs(Files.newInputStream(configFile.toPath()), Configuration.class);
+            config = yaml.loadAs(Files.newInputStream(configFile), Configuration.class);
         } catch (IOException exception) {
             exception.printStackTrace();
             return;

@@ -1,7 +1,5 @@
 repositories {
-    mavenCentral()
     maven("https://repo.kryptonmc.org/releases")
-    maven("https://jitpack.io")
 }
 
 dependencies {

@@ -1,4 +1,4 @@
-import me.dreamerzero.miniplaceholders.api.MiniPlaceholders;
+import io.github.miniplaceholders.api.MiniPlaceholders;
 import me.sliman4.expressions.Configuration;
 import me.sliman4.expressions.Expressions;
 import org.junit.jupiter.api.BeforeEach;
