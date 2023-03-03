@@ -39,6 +39,6 @@ public final class VelocityPlugin {
     public void onProxyInitialize(ProxyInitializeEvent event) {
         logger.info("Starting Expressions Expansion for Velocity");
 
-        Expressions.initialize(dataFolder.toFile(), getClass().getClassLoader().getResourceAsStream("config.yml"), platform);
+        Expressions.initialize(dataFolder, getClass().getClassLoader().getResourceAsStream("config.yml"), platform);
     }
 }

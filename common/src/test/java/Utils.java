@@ -1,5 +1,5 @@
-import me.dreamerzero.miniplaceholders.api.Expansion;
-import me.dreamerzero.miniplaceholders.api.MiniPlaceholders;
+import io.github.miniplaceholders.api.Expansion;
+import io.github.miniplaceholders.api.MiniPlaceholders;
 import me.sliman4.expressions.Configuration;
 import me.sliman4.expressions.Expressions;
 import net.kyori.adventure.text.Component;
