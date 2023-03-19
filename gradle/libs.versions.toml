@@ -59,4 +59,4 @@ minimessage = ["adventure-minimessage", "adventure-serializer-plain"]
 [plugins]
 shadow = { id = "com.github.johnrengelman.shadow", version = "7.1.2" }
 pluginyml = { id = "net.minecrell.plugin-yml.bukkit", version = "0.5.3" }
-runpaper = { id = "xyz.jpenilla.run-paper", version = "1.0.6" }
+runpaper = { id = "xyz.jpenilla.run-paper", version = "2.0.1" }
