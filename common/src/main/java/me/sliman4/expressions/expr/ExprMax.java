@@ -13,26 +13,18 @@ public class ExprMax implements Expression {
             double max;
             boolean isFloat = false;
             String s1 = Utils.parseToPlainText(ctx, queue.popOr("<expr_max> requires at least 1 argument").value());
-            try {
-                if (s1.contains(".")) {
-                    isFloat = true;
-                }
-                max = Double.parseDouble(s1);
-            } catch (NumberFormatException exception) {
-                throw ctx.newException("Not a number: `" + s1 + "`");
+            if (s1.contains(".")) {
+                isFloat = true;
             }
+            max = Utils.parseDouble(ctx, s1);
             while (queue.hasNext()) {
                 String s = Utils.parseToPlainText(ctx, queue.pop().value());
-                try {
-                    if (s.contains(".")) {
-                        isFloat = true;
-                    }
-                    max = Math.max(max, Double.parseDouble(s));
-                } catch (NumberFormatException exception) {
-                    throw ctx.newException("Not a number: `" + s + "`");
+                if (s.contains(".")) {
+                    isFloat = true;
                 }
+                max = Math.max(max, Utils.parseDouble(ctx, s));
             }
-            return Tag.inserting(isFloat ? Component.text(max) : Component.text((int) Math.round(max)));
+            return Tag.selfClosingInserting(isFloat ? Component.text(max) : Component.text((int) Math.round(max)));
         });
     }
 }

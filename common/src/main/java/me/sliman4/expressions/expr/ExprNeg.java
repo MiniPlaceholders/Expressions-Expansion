@@ -18,12 +18,8 @@ public class ExprNeg implements Expression {
             if (s.contains(".")) {
                 isFloat = true;
             }
-            try {
-                double n = Double.parseDouble(s);
-                return Tag.inserting(isFloat ? Component.text(-n) : Component.text((int) Math.round(-n)));
-            } catch (NumberFormatException exception) {
-                throw ctx.newException("Not a number: `" + s + "`");
-            }
+            double n = Utils.parseDouble(ctx, s);
+            return Tag.selfClosingInserting(isFloat ? Component.text(-n) : Component.text((int) Math.round(-n)));
         });
     }
 }

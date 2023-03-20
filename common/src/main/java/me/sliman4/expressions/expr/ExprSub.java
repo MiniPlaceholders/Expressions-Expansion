@@ -17,22 +17,14 @@ public class ExprSub implements Expression {
             if (queue.hasNext()) {
                 throw ctx.newException("<expr_sub> requires exactly 2 arguments");
             }
-            double n, n2;
+
             if (s.contains(".") || s2.contains(".")) {
                 isFloat = true;
             }
-            try {
-                n = Double.parseDouble(s);
-            } catch (NumberFormatException exception) {
-                throw ctx.newException("Not a number: `" + s + "`");
-            }
-            try {
-                n2 = Double.parseDouble(s2);
-            } catch (NumberFormatException exception) {
-                throw ctx.newException("Not a number: `" + s2 + "`");
-            }
+            double n = Utils.parseDouble(ctx, s);
+            double n2 = Double.parseDouble(s2);
 
-            return Tag.inserting(isFloat ? Component.text(n - n2) : Component.text((int) Math.round(n - n2)));
+            return Tag.selfClosingInserting(isFloat ? Component.text(n - n2) : Component.text((int) Math.round(n - n2)));
         });
     }
 }

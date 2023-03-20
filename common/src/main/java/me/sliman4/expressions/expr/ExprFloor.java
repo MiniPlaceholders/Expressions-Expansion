@@ -14,12 +14,8 @@ public class ExprFloor implements Expression {
             if (queue.hasNext()) {
                 throw ctx.newException("<expr_floor> requires exactly 1 argument");
             }
-            try {
-                double n = Double.parseDouble(s);
-                return Tag.inserting(Component.text((int) Math.floor(n)));
-            } catch (NumberFormatException exception) {
-                throw ctx.newException("Not a number: `" + s + "`");
-            }
+            double n = Utils.parseDouble(ctx, s);
+            return Tag.selfClosingInserting(Component.text((int) Math.floor(n)));
         });
     }
 }

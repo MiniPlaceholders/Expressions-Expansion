@@ -9,13 +9,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Arrays;
 import java.util.List;
 
 public class Expressions {
     public static void initialize(Path dataFolder, InputStream configYml, Platform platform) {
-        Configuration config;
-        try {
+        try (configYml) {
             if (Files.notExists(dataFolder)) {
                 Files.createDirectory(dataFolder);
             }
@@ -32,18 +30,16 @@ public class Expressions {
                     return super.getClassForName(name);
                 }
             });
-            config = yaml.loadAs(Files.newInputStream(configFile), Configuration.class);
+            Configuration config = yaml.loadAs(Files.newInputStream(configFile), Configuration.class);
+            registerPlaceholders(config, platform);
         } catch (IOException exception) {
             exception.printStackTrace();
-            return;
         }
-
-        registerPlaceholders(config, platform);
     }
 
     public static void registerPlaceholders(Configuration config, Platform platform) {
         Expansion.Builder builder = Expansion.builder("expr");
-        List<Expression> expressions = Arrays.asList(
+        List.of(
                 new ExprAdd(),
                 new ExprCeil(),
                 new ExprConcat(),
@@ -63,10 +59,7 @@ public class Expressions {
                 new ExprSub(),
                 new ExprSubstring(),
                 new ExprUser(config)
-        );
-        for(Expression expression : expressions) {
-            expression.register(builder);
-        }
+        ).forEach(expression -> expression.register(builder));
         builder
                 .build()
                 .register();

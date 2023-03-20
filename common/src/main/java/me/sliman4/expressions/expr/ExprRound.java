@@ -15,12 +15,8 @@ public class ExprRound implements Expression {
             if (queue.hasNext()) {
                 throw ctx.newException("<expr_round> requires exactly 1 argument");
             }
-            try {
-                double n = Double.parseDouble(s);
-                return Tag.inserting(Component.text((int) Math.round(n)));
-            } catch (NumberFormatException exception) {
-                throw ctx.newException("Not a number: `" + s + "`");
-            }
+            double n = Utils.parseDouble(ctx, s);
+            return Tag.inserting(Component.text((int) Math.round(n)));
         });
     }
 }

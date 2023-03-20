@@ -14,7 +14,7 @@ public class ExprLength implements Expression {
             if (queue.hasNext()) {
                 throw ctx.newException("<expr_length> requires exactly 1 argument");
             }
-            return Tag.inserting(Component.text(s.length()));
+            return Tag.selfClosingInserting(Component.text(s.length()));
         });
     }
 }

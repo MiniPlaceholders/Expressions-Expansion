@@ -14,7 +14,7 @@ public class ExprConcat implements Expression {
             while (queue.hasNext()) {
                 s.append(Utils.parseToPlainText(ctx, queue.pop().value()));
             }
-            return Tag.inserting(Component.text(s.toString()));
+            return Tag.selfClosingInserting(Component.text(s.toString()));
         });
     }
 }

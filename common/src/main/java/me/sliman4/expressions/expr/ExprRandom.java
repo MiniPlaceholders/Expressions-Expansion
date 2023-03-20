@@ -7,36 +7,22 @@ import me.sliman4.expressions.Utils;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.tag.Tag;
 
-import java.util.Random;
+import java.security.SecureRandom;
 
 public class ExprRandom implements Expression {
+    private static final SecureRandom random = new SecureRandom();
     @Override
     public void register(Expansion.Builder builder) {
         builder.globalPlaceholder("random", (queue, ctx) -> {
-            double min, max, step;
+            final double min, max, step;
             if (queue.hasNext()) {
                 String s = Utils.parseToPlainText(ctx, queue.pop().value());
-                try {
-                    min = Double.parseDouble(s);
-                } catch (NumberFormatException exception) {
-                    throw ctx.newException("Not a number: `" + s + "`");
-                }
-                if (!queue.hasNext()) {
-                    throw ctx.newException("<expr_random> requires 0, 2 or 3 arguments");
-                }
-                String s2 = Utils.parseToPlainText(ctx, queue.pop().value());
-                try {
-                    max = Double.parseDouble(s2);
-                } catch (NumberFormatException exception) {
-                    throw ctx.newException("Not a number: `" + s2 + "`");
-                }
+                min = Utils.parseDouble(ctx, s);
+                String s2 = Utils.parseToPlainText(ctx, queue.popOr("<expr_random> requires 0, 2 or 3 arguments").value());
+                max = Utils.parseDouble(ctx, s2);
                 if (queue.hasNext()) {
                     String s3 = Utils.parseToPlainText(ctx, queue.pop().value());
-                    try {
-                        step = Double.parseDouble(s3);
-                    } catch (NumberFormatException exception) {
-                        throw ctx.newException("Not a number: `" + s3 + "`");
-                    }
+                    step = Utils.parseDouble(ctx, s3);
                 } else {
                     step = 1.00;
                 }
@@ -50,7 +36,7 @@ public class ExprRandom implements Expression {
             }
             boolean isFloat = (step % 1.00) != 0;
             int stepsAvailable = (int) ((max - min) / step);
-            int steps = new Random().nextInt(stepsAvailable + 1);
+            int steps = random.nextInt(stepsAvailable + 1);
             double result = min + (step * steps);
             return Tag.inserting(isFloat ? Component.text(result) : Component.text((int) Math.round(result)));
         });

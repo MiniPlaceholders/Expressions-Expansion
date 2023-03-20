@@ -4,24 +4,20 @@ plugins {
 }
 
 allprojects {
-    apply(plugin = "java")
-    group = "me.sliman4.expressions"
-    version = "1.0.0"
-    description = "Expressions-Expansion"
+    apply<JavaPlugin>()
 }
 
 dependencies {
-    shadow(project(":expressions-velocity"))
-    shadow(project(":expressions-paper"))
-    shadow(project(":expressions-krypton"))
-    shadow(project(":expressions-common"))
+    implementation(project(":expressions-velocity"))
+    implementation(project(":expressions-paper"))
+    implementation(project(":expressions-krypton"))
+    implementation(project(":expressions-common"))
 }
 
 tasks {
     shadowJar {
-        archiveFileName.set("Expressions-Expansion.jar")
+        archiveFileName.set("Expressions-Expansion-${project.version}.jar")
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-        configurations = listOf(project.configurations.shadow.get())
     }
     build {
         dependsOn(shadowJar)

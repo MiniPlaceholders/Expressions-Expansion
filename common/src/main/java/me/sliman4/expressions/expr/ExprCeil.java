@@ -14,12 +14,8 @@ public class ExprCeil implements Expression {
             if (queue.hasNext()) {
                 throw ctx.newException("<expr_ceil> requires exactly 1 argument");
             }
-            try {
-                double n = Double.parseDouble(s);
-                return Tag.inserting(Component.text((int) Math.ceil(n)));
-            } catch (NumberFormatException exception) {
-                throw ctx.newException("Not a number: `" + s + "`");
-            }
+            double n = Utils.parseDouble(ctx, s);
+            return Tag.selfClosingInserting(Component.text((int) Math.ceil(n)));
         });
     }
 }

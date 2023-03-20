@@ -4,7 +4,6 @@ package me.sliman4.expressions.expr;
 import io.github.miniplaceholders.api.Expansion;
 import me.sliman4.expressions.Expression;
 import me.sliman4.expressions.Utils;
-import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.tag.Tag;
 
 public class ExprSubstring implements Expression {
@@ -17,18 +16,9 @@ public class ExprSubstring implements Expression {
             if (queue.hasNext()) {
                 throw ctx.newException("<expr_substring> requires exactly 3 arguments");
             }
-            int n, n2;
-            try {
-                n = Integer.parseInt(s2);
-            } catch (NumberFormatException exception) {
-                throw ctx.newException("Not a number: `" + s2 + "`");
-            }
-            try {
-                n2 = Integer.parseInt(s3);
-            } catch (NumberFormatException exception) {
-                throw ctx.newException("Not a number: `" + s3 + "`");
-            }
-            return Tag.inserting(Component.text(s.substring(n, n2)));
+            int n = Utils.parseInt(ctx, s2);
+            int n2 = Utils.parseInt(ctx, s3);
+            return Tag.inserting(ctx.deserialize(s.substring(n, n2)));
         });
     }
 }

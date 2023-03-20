@@ -1,11 +1,15 @@
 rootProject.name = "expressions-parent"
 
-include("expressions-paper")
-include("expressions-velocity")
-include("expressions-krypton")
-include("expressions-common")
+listOf(
+    "paper",
+    "velocity",
+    "krypton",
+    "common"
+).forEach {
+    include("expressions-$it")
+    project(":expressions-$it").projectDir = file(it)
+}
 
-project(":expressions-velocity").projectDir = file("velocity")
-project(":expressions-paper").projectDir = file("paper")
-project(":expressions-krypton").projectDir = file("krypton")
-project(":expressions-common").projectDir = file("common")
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "0.4.0"
+}

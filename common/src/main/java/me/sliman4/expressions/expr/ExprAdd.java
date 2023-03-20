@@ -14,16 +14,12 @@ public class ExprAdd implements Expression {
             boolean isFloat = false;
             while (queue.hasNext()) {
                 String s = Utils.parseToPlainText(ctx, queue.pop().value());
-                try {
-                    if (s.contains(".")) {
-                        isFloat = true;
-                    }
-                    n += Double.parseDouble(s);
-                } catch (NumberFormatException exception) {
-                    throw ctx.newException("Not a number: `" + s + "`");
+                if (s.contains(".")) {
+                    isFloat = true;
                 }
+                n += Utils.parseDouble(ctx, s);
             }
-            return Tag.inserting(isFloat ? Component.text(n) : Component.text((int) Math.round(n)));
+            return Tag.selfClosingInserting(isFloat ? Component.text(n) : Component.text((int) Math.round(n)));
         });
     }
 }

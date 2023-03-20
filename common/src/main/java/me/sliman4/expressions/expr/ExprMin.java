@@ -13,26 +13,18 @@ public class ExprMin implements Expression {
             double min;
             boolean isFloat = false;
             String s1 = Utils.parseToPlainText(ctx, queue.popOr("<expr_min> requires at least 1 argument").value());
-            try {
-                if (s1.contains(".")) {
-                    isFloat = true;
-                }
-                min = Double.parseDouble(s1);
-            } catch (NumberFormatException exception) {
-                throw ctx.newException("Not a number: `" + s1 + "`");
+            if (s1.contains(".")) {
+                isFloat = true;
             }
+            min = Utils.parseDouble(ctx, s1);
             while (queue.hasNext()) {
                 String s = Utils.parseToPlainText(ctx, queue.pop().value());
-                try {
-                    if (s.contains(".")) {
-                        isFloat = true;
-                    }
-                    min = Math.min(min, Double.parseDouble(s));
-                } catch (NumberFormatException exception) {
-                    throw ctx.newException("Not a number: `" + s + "`");
+                if (s.contains(".")) {
+                    isFloat = true;
                 }
+                min = Math.min(min, Utils.parseDouble(ctx, s));
             }
-            return Tag.inserting(isFloat ? Component.text(min) : Component.text((int) Math.round(min)));
+            return Tag.selfClosingInserting(isFloat ? Component.text(min) : Component.text((int) Math.round(min)));
         });
     }
 }

@@ -9,4 +9,20 @@ public class Utils {
         Component result = context.deserialize(s);
         return PlainTextComponentSerializer.plainText().serialize(result);
     }
+
+    public static double parseDouble(Context context, String s) {
+        try {
+            return Double.parseDouble(s);
+        } catch (NumberFormatException exception) {
+            throw context.newException("Not a number: `" + s + "`");
+        }
+    }
+
+    public static int parseInt(Context context, String s) {
+        try {
+            return Integer.parseInt(s);
+        } catch (NumberFormatException exception) {
+            throw context.newException("Not a number: `" + s + "`");
+        }
+    }
 }

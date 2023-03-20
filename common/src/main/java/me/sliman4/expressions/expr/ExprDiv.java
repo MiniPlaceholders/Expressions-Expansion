@@ -16,18 +16,10 @@ public class ExprDiv implements Expression {
             if (queue.hasNext()) {
                 throw ctx.newException("<expr_div> requires exactly 2 arguments");
             }
-            double n, n2;
-            try {
-                n = Double.parseDouble(s);
-            } catch (NumberFormatException exception) {
-                throw ctx.newException("Not a number: `" + s + "`");
-            }
-            try {
-                n2 = Double.parseDouble(s2);
-            } catch (NumberFormatException exception) {
-                throw ctx.newException("Not a number: `" + s2 + "`");
-            }
-            if(n2 == 0.0) {
+            double n = Utils.parseDouble(ctx, s);
+            double n2 = Utils.parseDouble(ctx, s2);
+
+            if (n2 == 0.0) {
                 throw ctx.newException("Second argument of <expr_div> cannot be zero");
             }
             if (s.contains(".") || s2.contains(".") || (n / n2) - Math.floor(n / n2) > 0.001) {
