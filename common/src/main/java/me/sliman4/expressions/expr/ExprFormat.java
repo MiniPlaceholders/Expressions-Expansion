@@ -3,7 +3,6 @@ package me.sliman4.expressions.expr;
 import io.github.miniplaceholders.api.Expansion;
 import me.sliman4.expressions.Expression;
 import me.sliman4.expressions.Utils;
-import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.tag.Tag;
 
 import java.util.ArrayList;
@@ -27,7 +26,7 @@ public class ExprFormat implements Expression {
                     }
                 }
             }
-            return Tag.inserting(Component.text(String.format(format, arguments.toArray(Object[]::new))));
+            return Tag.preProcessParsed(String.format(format, arguments.toArray(Object[]::new)));
         });
     }
 }

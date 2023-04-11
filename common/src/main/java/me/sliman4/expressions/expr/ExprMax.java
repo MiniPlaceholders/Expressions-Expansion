@@ -3,7 +3,6 @@ package me.sliman4.expressions.expr;
 import io.github.miniplaceholders.api.Expansion;
 import me.sliman4.expressions.Expression;
 import me.sliman4.expressions.Utils;
-import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.tag.Tag;
 
 public class ExprMax implements Expression {
@@ -24,7 +23,10 @@ public class ExprMax implements Expression {
                 }
                 max = Math.max(max, Utils.parseDouble(ctx, s));
             }
-            return Tag.selfClosingInserting(isFloat ? Component.text(max) : Component.text((int) Math.round(max)));
+            final String value = isFloat
+                    ? Double.toString(max)
+                    : Integer.toString((int) Math.round(max));
+            return Tag.preProcessParsed(value);
         });
     }
 }

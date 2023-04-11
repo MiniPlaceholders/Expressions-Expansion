@@ -4,7 +4,6 @@ package me.sliman4.expressions.expr;
 import io.github.miniplaceholders.api.Expansion;
 import me.sliman4.expressions.Expression;
 import me.sliman4.expressions.Utils;
-import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.tag.Tag;
 
 import java.security.SecureRandom;
@@ -38,7 +37,11 @@ public class ExprRandom implements Expression {
             int stepsAvailable = (int) ((max - min) / step);
             int steps = random.nextInt(stepsAvailable + 1);
             double result = min + (step * steps);
-            return Tag.inserting(isFloat ? Component.text(result) : Component.text((int) Math.round(result)));
+
+            final String value = isFloat
+                    ? Double.toString(result)
+                    : Integer.toString((int) Math.round(result));
+            return Tag.preProcessParsed(value);
         });
     }
 }

@@ -3,7 +3,6 @@ package me.sliman4.expressions.expr;
 import io.github.miniplaceholders.api.Expansion;
 import me.sliman4.expressions.Expression;
 import me.sliman4.expressions.Utils;
-import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.tag.Tag;
 
 public class ExprMin implements Expression {
@@ -24,7 +23,10 @@ public class ExprMin implements Expression {
                 }
                 min = Math.min(min, Utils.parseDouble(ctx, s));
             }
-            return Tag.selfClosingInserting(isFloat ? Component.text(min) : Component.text((int) Math.round(min)));
+            final String value = isFloat
+                    ? Double.toString(min)
+                    : Integer.toString((int) Math.round(min));
+            return Tag.preProcessParsed(value);
         });
     }
 }

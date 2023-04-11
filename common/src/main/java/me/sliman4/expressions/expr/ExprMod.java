@@ -3,7 +3,6 @@ package me.sliman4.expressions.expr;
 import io.github.miniplaceholders.api.Expansion;
 import me.sliman4.expressions.Expression;
 import me.sliman4.expressions.Utils;
-import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.tag.Tag;
 
 public class ExprMod implements Expression {
@@ -22,8 +21,11 @@ public class ExprMod implements Expression {
             if (s.contains(".") || s2.contains(".")) {
                 isFloat = true;
             }
+            final String value = isFloat
+                    ? Double.toString(n % n2)
+                    : Integer.toString((int) Math.round(n % n2));
 
-            return Tag.selfClosingInserting(isFloat ? Component.text(n % n2) : Component.text((int) Math.round(n % n2)));
+            return Tag.preProcessParsed(value);
         });
     }
 }

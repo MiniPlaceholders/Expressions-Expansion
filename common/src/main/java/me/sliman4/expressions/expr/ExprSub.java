@@ -4,7 +4,6 @@ package me.sliman4.expressions.expr;
 import io.github.miniplaceholders.api.Expansion;
 import me.sliman4.expressions.Expression;
 import me.sliman4.expressions.Utils;
-import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.tag.Tag;
 
 public class ExprSub implements Expression {
@@ -24,7 +23,10 @@ public class ExprSub implements Expression {
             double n = Utils.parseDouble(ctx, s);
             double n2 = Double.parseDouble(s2);
 
-            return Tag.selfClosingInserting(isFloat ? Component.text(n - n2) : Component.text((int) Math.round(n - n2)));
+            final String value = isFloat
+                    ? Double.toString(n - n2)
+                    : Integer.toString((int) Math.round(n - n2));
+            return Tag.preProcessParsed(value);
         });
     }
 }
