@@ -1,3 +1,7 @@
+plugins {
+    alias(libs.plugins.blossom)
+}
+
 repositories {
     mavenCentral()
 }
@@ -19,4 +23,7 @@ tasks {
     }
 }
 
-java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+blossom {
+    replaceToken("{version}", project.version)
+    replaceTokenIn("src/main/java/me/sliman4/expressions/Utils.java")
+}

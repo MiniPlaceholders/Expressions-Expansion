@@ -2,6 +2,7 @@
 adventure = "4.13.0"
 junit = "5.9.2"
 krypton = "0.60.3"
+blossom = "1.3.1"
 
 [libraries.miniplaceholders]
 group = "io.github.miniplaceholders"
@@ -59,3 +60,4 @@ minimessage = ["adventure-minimessage", "adventure-serializer-plain"]
 [plugins]
 shadow = { id = "com.github.johnrengelman.shadow", version = "8.1.1" }
 runpaper = { id = "xyz.jpenilla.run-paper", version = "2.0.1" }
+blossom = { id = "net.kyori.blossom", version.ref = "blossom" }

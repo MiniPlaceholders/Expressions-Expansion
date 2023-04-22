@@ -3,6 +3,7 @@ package me.sliman4.expressions.krypton;
 import com.google.inject.Inject;
 import me.sliman4.expressions.Expressions;
 import me.sliman4.expressions.Platform;
+import me.sliman4.expressions.Utils;
 import org.apache.logging.log4j.Logger;
 import org.kryptonmc.api.Server;
 import org.kryptonmc.api.event.Listener;
@@ -16,7 +17,7 @@ import java.nio.file.Path;
 @Plugin(
         name = "Expressions-Expansion",
         id = "expressionsexpansion",
-        version = "1.0.1",
+        version = Utils.VERSION,
         authors = {"Sliman4", "4drian3d"},
         dependencies = {
                 @Dependency(id = "miniplaceholders")

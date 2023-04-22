@@ -10,6 +10,7 @@ import com.velocitypowered.api.plugin.annotation.DataDirectory;
 import com.velocitypowered.api.proxy.ProxyServer;
 import me.sliman4.expressions.Expressions;
 import me.sliman4.expressions.Platform;
+import me.sliman4.expressions.Utils;
 import org.slf4j.Logger;
 
 import java.nio.file.Path;
@@ -17,7 +18,7 @@ import java.nio.file.Path;
 @Plugin(
         name = "Expressions-Expansion",
         id = "expressionsexpansion",
-        version = "1.0.1",
+        version = Utils.VERSION,
         authors = {"Sliman4", "4drian3d"},
         dependencies = {
                 @Dependency(id = "miniplaceholders")
