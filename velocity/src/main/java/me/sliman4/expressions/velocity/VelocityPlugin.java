@@ -17,8 +17,8 @@ import java.nio.file.Path;
 @Plugin(
         name = "Expressions-Expansion",
         id = "expressionsexpansion",
-        version = "1.0.0",
-        authors = {"Sliman4"},
+        version = "1.0.1",
+        authors = {"Sliman4", "4drian3d"},
         dependencies = {
                 @Dependency(id = "miniplaceholders")
         }

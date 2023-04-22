@@ -3,10 +3,8 @@ repositories {
 }
 
 dependencies {
-    compileOnly(project(":expressions-common"))
+    compileOnly(projects.expressionsCommon)
     compileOnly(libs.krypton.api)
     compileOnly(libs.miniplaceholders)
     annotationProcessor(libs.krypton.annotation.processor)
 }
-
-java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))

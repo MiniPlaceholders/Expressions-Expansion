@@ -5,13 +5,19 @@ plugins {
 
 allprojects {
     apply<JavaPlugin>()
+    java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+
+    tasks.withType<JavaCompile> {
+        options.encoding = Charsets.UTF_8.name()
+        options.release.set(17)
+    }
 }
 
 dependencies {
-    implementation(project(":expressions-velocity"))
-    implementation(project(":expressions-paper"))
-    implementation(project(":expressions-krypton"))
-    implementation(project(":expressions-common"))
+    implementation(projects.expressionsCommon)
+    implementation(projects.expressionsVelocity)
+    implementation(projects.expressionsKrypton)
+    implementation(projects.expressionsPaper)
 }
 
 tasks {
