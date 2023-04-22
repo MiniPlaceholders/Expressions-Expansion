@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "expressionsexpansion",
+  "version": "${version}",
+  "name": "Expressions-Expansion",
+  "authors": [
+    "4drian3d"
+  ],
+  "contact": {
+    "homepage": "https://github.com/MiniPlaceholders/Expressions-Expansion",
+    "sources": "https://github.com/MiniPlaceholders/Expressions-Expansion",
+    "issues": "https://github.com/MiniPlaceholders/Expressions-Expansion/issues"
+  },
+  "license": "GPL",
+  "environment": "server",
+  "entrypoints": {
+    "main": [
+      "me.sliman4.expressions.fabric.FabricMod"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.14.19",
+    "fabric": "*",
+    "java": ">=17",
+    "minecraft": "~1.19.4",
+    "miniplaceholders": "*"
+  }
+}

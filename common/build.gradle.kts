@@ -2,10 +2,6 @@ plugins {
     alias(libs.plugins.blossom)
 }
 
-repositories {
-    mavenCentral()
-}
-
 dependencies {
     compileOnly(libs.bundles.minimessage)
     compileOnly(libs.snakeyaml)
