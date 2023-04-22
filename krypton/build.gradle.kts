@@ -1,7 +1,3 @@
-repositories {
-    maven("https://repo.kryptonmc.org/releases")
-}
-
 dependencies {
     compileOnly(projects.expressionsCommon)
     compileOnly(libs.krypton.api)
