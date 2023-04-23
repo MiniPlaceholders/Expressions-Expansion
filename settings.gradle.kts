@@ -35,5 +35,5 @@ listOf(
 
 plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "0.4.0"
-    id("fabric-loom") version "1.1-SNAPSHOT"
+    id("fabric-loom") version "1.2.5"
 }
