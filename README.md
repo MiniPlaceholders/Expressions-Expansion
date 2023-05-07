@@ -68,3 +68,6 @@ You can create your own expression shortcut in config.yml using our Expression E
 
 ## Nesting
 Expressions can be nested. Try `/miniplaceholders parse me "<expr_add:1:'<expr_add:1:\\'<expr_add:1:\\\\\\'<expr_add:1:\\\\\\\\\\\\\\'<expr_add:1:0>\\\\\\\\\\\\\\'>\\\\\\'>\\'>'>"`
+
+## Downloads
+[![](https://raw.githubusercontent.com/Prospector/badges/master/modrinth-badge-72h-padded.png)](https://modrinth.com/plugin/expressions-expansion)
