@@ -7,3 +7,6 @@ main: me.sliman4.expressions.paper.PaperPlugin
 description: Expressions Expansion for MiniPlaceholders
 api-version: '1.19'
 folia-supported: true
+dependencies:
+  - name: MiniPlaceholders
+    required: true
