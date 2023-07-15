@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.List;
+import java.util.stream.Stream;
 
 public class Expressions {
     public static void initialize(Path dataFolder, InputStream configYml, Platform platform) {
@@ -39,9 +39,9 @@ public class Expressions {
         }
     }
 
-    public static void registerPlaceholders(Configuration config, Platform platform) {
-        Expansion.Builder builder = Expansion.builder("expr");
-        List.of(
+    public static void registerPlaceholders(final Configuration config, final Platform platform) {
+        final Expansion.Builder builder = Expansion.builder("expr");
+        Stream.of(
                 new ExprAdd(),
                 new ExprCeil(),
                 new ExprConcat(),
@@ -62,8 +62,6 @@ public class Expressions {
                 new ExprSubstring(),
                 new ExprUser(config)
         ).forEach(expression -> expression.register(builder));
-        builder
-                .build()
-                .register();
+        builder.build().register();
     }
 }

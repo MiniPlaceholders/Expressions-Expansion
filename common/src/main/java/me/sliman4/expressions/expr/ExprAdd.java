@@ -4,22 +4,27 @@ import io.github.miniplaceholders.api.Expansion;
 import me.sliman4.expressions.Expression;
 import me.sliman4.expressions.Utils;
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.minimessage.Context;
 import net.kyori.adventure.text.minimessage.tag.Tag;
+import net.kyori.adventure.text.minimessage.tag.resolver.ArgumentQueue;
 
-public class ExprAdd implements Expression {
+public final class ExprAdd implements Expression {
     @Override
     public void register(Expansion.Builder builder) {
-        builder.globalPlaceholder("add", (queue, ctx) -> {
-            double n = 0;
-            boolean isFloat = false;
-            while (queue.hasNext()) {
-                String s = Utils.parseToPlainText(ctx, queue.pop().value());
-                if (s.contains(".")) {
-                    isFloat = true;
-                }
-                n += Utils.parseDouble(ctx, s);
+        builder.globalPlaceholder("add", this);
+    }
+
+    @Override
+    public Tag apply(final ArgumentQueue argumentQueue, final Context context) {
+        double n = 0;
+        boolean isFloat = false;
+        while (argumentQueue.hasNext()) {
+            String s = Utils.parseToPlainText(context, argumentQueue.pop().value());
+            if (s.contains(".")) {
+                isFloat = true;
             }
-            return Tag.selfClosingInserting(isFloat ? Component.text(n) : Component.text((int) Math.round(n)));
-        });
+            n += Utils.parseDouble(context, s);
+        }
+        return Tag.selfClosingInserting(isFloat ? Component.text(n) : Component.text((int) Math.round(n)));
     }
 }
