@@ -10,7 +10,7 @@ import java.util.UUID;
 public class VelocityPlatform implements Platform {
     private final ProxyServer server;
 
-    public VelocityPlatform(ProxyServer server) {
+    public VelocityPlatform(final ProxyServer server) {
         this.server = server;
     }
 

@@ -20,10 +20,10 @@ public final class ExprMod implements Expression {
         if (argumentQueue.hasNext()) {
             throw context.newException("<expr_mod> requires exactly 2 arguments");
         }
-        final double n = Utils.parseDouble(ctx, s);
-        final double n2 = Utils.parseDouble(ctx, s2);
+        final double n = Utils.parseDouble(context, s);
+        final double n2 = Utils.parseDouble(context, s2);
 
-        final boolean isFloat = s.indexOf('.') != 1 || s2.indexOf('.') != -1;
+        final boolean isFloat = s.contains(".") || s2.contains(".");
         final String value = isFloat
                 ? Double.toString(n % n2)
                 : Integer.toString((int) Math.round(n % n2));
