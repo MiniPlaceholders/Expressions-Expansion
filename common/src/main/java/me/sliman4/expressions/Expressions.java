@@ -2,6 +2,7 @@ package me.sliman4.expressions;
 
 import io.github.miniplaceholders.api.Expansion;
 import me.sliman4.expressions.expr.*;
+import org.yaml.snakeyaml.LoaderOptions;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
 
@@ -17,11 +18,12 @@ public class Expressions {
             if (Files.notExists(dataFolder)) {
                 Files.createDirectory(dataFolder);
             }
-            Path configFile = dataFolder.resolve("config.yml");
+            final Path configFile = dataFolder.resolve("config.yml");
             if (Files.notExists(configFile)) {
                 Files.copy(configYml, configFile);
             }
-            Yaml yaml = new Yaml(new Constructor() {
+
+            final Yaml yaml = new Yaml(new Constructor(new LoaderOptions()) {
                 @Override
                 protected Class<?> getClassForName(String name) throws ClassNotFoundException {
                     if (name.equals(Configuration.class.getName())) {
@@ -30,7 +32,7 @@ public class Expressions {
                     return super.getClassForName(name);
                 }
             });
-            Configuration config = yaml.loadAs(Files.newInputStream(configFile), Configuration.class);
+            final Configuration config = yaml.loadAs(Files.newInputStream(configFile), Configuration.class);
             registerPlaceholders(config, platform);
         } catch (IOException exception) {
             exception.printStackTrace();

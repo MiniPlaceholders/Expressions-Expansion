@@ -17,7 +17,7 @@ version = "2.2.0"
 [libraries.velocity-api]
 group = "com.velocitypowered"
 name = "velocity-api"
-version = "3.1.1"
+version = "3.2.0-SNAPSHOT"
 
 [libraries.paper-api]
 group = "io.papermc.paper"
@@ -37,7 +37,7 @@ version = { ref = "adventure" }
 [libraries.snakeyaml]
 group = "org.yaml"
 name = "snakeyaml"
-version = "1.33"
+version = "2.0"
 
 [libraries.junit-jupiter-api]
 group = "org.junit.jupiter"
