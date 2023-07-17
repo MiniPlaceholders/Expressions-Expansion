@@ -27,7 +27,7 @@ public final class ExprDiv implements Expression {
             throw context.newException("Second argument of <expr_div> cannot be zero");
         }
 
-        final boolean isFloat = s.contains(".") || s2.contains(".") || (n / n2) - Math.floor(n / n2) > 0.001;
+        final boolean isFloat = s.indexOf('.') != -1 || s2.indexOf('.') != -1 || (n / n2) - Math.floor(n / n2) > 0.001;
         final String value = isFloat
                 ? Double.toString(n/n2)
                 : Integer.toString((int) Math.round(n / n2));

@@ -10,7 +10,7 @@ import net.kyori.adventure.text.minimessage.tag.resolver.ArgumentQueue;
 
 public final class ExprAdd implements Expression {
     @Override
-    public void register(Expansion.Builder builder) {
+    public void register(final Expansion.Builder builder) {
         builder.globalPlaceholder("add", this);
     }
 
@@ -19,8 +19,8 @@ public final class ExprAdd implements Expression {
         double n = 0;
         boolean isFloat = false;
         while (argumentQueue.hasNext()) {
-            String s = Utils.parseToPlainText(context, argumentQueue.pop().value());
-            if (s.contains(".")) {
+            final String s = Utils.parseToPlainText(context, argumentQueue.pop().value());
+            if (!isFloat && s.indexOf('.') != -1) {
                 isFloat = true;
             }
             n += Utils.parseDouble(context, s);
