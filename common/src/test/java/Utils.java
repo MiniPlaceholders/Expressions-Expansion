@@ -1,4 +1,3 @@
-import io.github.miniplaceholders.api.Expansion;
 import io.github.miniplaceholders.api.MiniPlaceholders;
 import me.sliman4.expressions.Configuration;
 import me.sliman4.expressions.Expressions;
@@ -6,25 +5,38 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 
-import java.lang.reflect.Field;
+import java.lang.invoke.MethodHandle;
+import java.lang.invoke.MethodHandles;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class Utils {
-    public static void assertExpands(String placeholderRequest, String expectedResult) {
-        Component component = MiniMessage.miniMessage().deserialize(placeholderRequest, MiniPlaceholders.getGlobalPlaceholders());
-        String actualResult = PlainTextComponentSerializer.plainText().serialize(component);
-        assertEquals(expectedResult, actualResult, String.format("Placeholder request: `%s`. Expected: `%s`, got: `%s`", placeholderRequest, expectedResult, actualResult));
+    private static final MethodHandle GET_EXPANSIONS;
+    private static final MiniMessage MINI_MESSAGE = MiniMessage.miniMessage();
+    private static final PlainTextComponentSerializer PLAIN_SERIALIZER = PlainTextComponentSerializer.plainText();
+
+    static {
+        try {
+            final MethodHandles.Lookup lookup = MethodHandles.privateLookupIn(MiniPlaceholders.class, MethodHandles.lookup());
+            GET_EXPANSIONS = lookup.findStaticGetter(MiniPlaceholders.class, "expansions", Set.class);
+        } catch (IllegalAccessException | NoSuchFieldException e) {
+            throw new Error(e);
+        }
     }
 
-    public static void registerPlaceholders(Configuration configuration) {
+    public static void assertExpands(final String placeholderRequest, final String expectedResult) {
+        final Component component = MINI_MESSAGE.deserialize(placeholderRequest, MiniPlaceholders.getGlobalPlaceholders());
+        final String actualResult = PLAIN_SERIALIZER.serialize(component);
+
+        assertEquals(expectedResult, actualResult, "Placeholder request: `%s`. Expected: `%s`, got: `%s`".formatted(placeholderRequest, expectedResult, actualResult));
+    }
+
+    public static void registerPlaceholders(final Configuration configuration) {
         try {
-            Field field = MiniPlaceholders.class.getDeclaredField("expansions");
-            field.setAccessible(true);
-            Set<Expansion> expansions = (Set<Expansion>) field.get(null);
+            final Set<?> expansions = (Set<?>) GET_EXPANSIONS.invoke();
             expansions.clear();
-        } catch (NoSuchFieldException | IllegalAccessException exception) {
+        } catch (Throwable exception) {
             exception.printStackTrace();
         }
         Expressions.registerPlaceholders(configuration, new TestPlatform());
