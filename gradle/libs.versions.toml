@@ -84,5 +84,5 @@ minimessage = ["adventure-minimessage", "adventure-serializer-plain"]
 
 [plugins]
 shadow = { id = "com.github.johnrengelman.shadow", version.ref = "shadow" }
-runpaper = { id = "xyz.jpenilla.run-paper", version = "2.1.0" }
+runpaper = { id = "xyz.jpenilla.run-paper", version = "2.2.0" }
 blossom = { id = "net.kyori.blossom", version.ref = "blossom" }
