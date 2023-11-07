@@ -20,6 +20,6 @@ public final class ExprIf implements Expression {
         final String p1 = argumentQueue.popOr("<expr_if> requires 3 or 4 arguments").value();
         final String p2 = argumentQueue.hasNext() ? argumentQueue.pop().value() : "";
 
-        return Tag.inserting(context.deserialize(o1.equals(o2) ? p1 : p2));
+        return Tag.preProcessParsed(o1.equals(o2) ? p1 : p2);
     }
 }
