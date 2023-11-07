@@ -18,3 +18,8 @@ jobs:
         java-version: '17'
         cache: 'gradle'
     - run: ./gradlew build --no-daemon --debug
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: MiniPlaceholders-Expressions-Expansion
+        path: build/libs
