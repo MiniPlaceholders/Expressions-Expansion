@@ -17,7 +17,7 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
         cache: 'gradle'
-    - run: ./gradlew build --no-daemon --debug
+    - run: ./gradlew build --no-daemon
     - name: Upload build artifact
       uses: actions/upload-artifact@v3
       with:
