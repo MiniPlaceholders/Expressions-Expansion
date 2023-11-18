@@ -22,4 +22,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: MiniPlaceholders-Expressions-Expansion
-        path: build/libs
+        path: build/Expressions-*.jar
