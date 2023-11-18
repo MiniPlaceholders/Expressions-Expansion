@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "id": "expressionsexpansion",
+  "id": "miniplaceholders-expressions-expansion",
   "version": "${version}",
-  "name": "Expressions-Expansion",
+  "name": "MiniPlaceholders-Expressions-Expansion",
   "authors": [
     "4drian3d"
   ],
@@ -22,7 +22,7 @@
     "fabricloader": ">=0.14.19",
     "fabric": "*",
     "java": ">=17",
-    "minecraft": "~1.19.4",
+    "minecraft": ">1.20",
     "miniplaceholders": "*"
   }
 }

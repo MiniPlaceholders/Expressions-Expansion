@@ -16,7 +16,6 @@ allprojects {
 dependencies {
     implementation(projects.expressionsCommon)
     implementation(projects.expressionsVelocity)
-    implementation(projects.expressionsKrypton)
     implementation(projects.expressionsPaper)
 }
 

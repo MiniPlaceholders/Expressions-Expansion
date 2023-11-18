@@ -4,8 +4,8 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.Context;
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 
-public class Utils {
-    public static final String VERSION = "{version}";
+public final class Utils {
+    private Utils() {}
     public static String parseToPlainText(final Context context, final String s) {
         final Component result = context.deserialize(s);
         return PlainTextComponentSerializer.plainText().serialize(result);

@@ -1,4 +1,5 @@
 plugins {
+    alias(libs.plugins.idea.ext)
     alias(libs.plugins.blossom)
 }
 
@@ -19,7 +20,12 @@ tasks {
     }
 }
 
-blossom {
-    replaceToken("{version}", project.version)
-    replaceTokenIn("src/main/java/me/sliman4/expressions/Utils.java")
+sourceSets {
+    main {
+        blossom {
+            javaSources {
+                property("version", project.version.toString())
+            }
+        }
+    }
 }

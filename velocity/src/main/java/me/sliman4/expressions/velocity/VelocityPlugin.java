@@ -8,17 +8,17 @@ import com.velocitypowered.api.plugin.Dependency;
 
 import com.velocitypowered.api.plugin.annotation.DataDirectory;
 import com.velocitypowered.api.proxy.ProxyServer;
+import io.github.miniplaceholders.expansion.expressions.Constants;
 import me.sliman4.expressions.Expressions;
 import me.sliman4.expressions.Platform;
-import me.sliman4.expressions.Utils;
 import org.slf4j.Logger;
 
 import java.nio.file.Path;
 
 @Plugin(
         name = "Expressions-Expansion",
-        id = "expressionsexpansion",
-        version = Utils.VERSION,
+        id = "miniplaceholders-expressions-expansion",
+        version = Constants.VERSION,
         authors = {"Sliman4", "4drian3d"},
         dependencies = {
                 @Dependency(id = "miniplaceholders")

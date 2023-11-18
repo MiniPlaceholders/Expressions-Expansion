@@ -1,4 +1,4 @@
-name: Expressions-Expansion
+name: MiniPlaceholders-Expressions-Expansion
 version: '${version}'
 authors:
   - 4drian3d
@@ -8,5 +8,6 @@ description: Expressions Expansion for MiniPlaceholders
 api-version: '1.19'
 folia-supported: true
 dependencies:
-  - name: MiniPlaceholders
-    required: true
+  server:
+    MiniPlaceholders:
+      required: true

@@ -7,7 +7,7 @@ rootProject.name = "expressions-parent"
 dependencyResolutionManagement {
     repositories {
         maven("https://papermc.io/repo/repository/maven-public/")
-        maven("https://repo.kryptonmc.org/releases")
+        //maven("https://repo.kryptonmc.org/releases")
         maven("https://oss.sonatype.org/content/repositories/snapshots")
     }
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
@@ -26,7 +26,6 @@ listOf(
     "common",
     "paper",
     "velocity",
-    "krypton",
     "fabric",
 ).forEach {
     include("expressions-$it")
