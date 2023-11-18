@@ -26,7 +26,8 @@ tasks {
     }
     remapJar {
         inputFile.set(shadowJar.get().archiveFile)
-        archiveFileName.set("Expressions-Expansion-Fabric-mc${libs.versions.minecraft.get()}-v${project.version}.jar")
+        archiveFileName.set("Expressions-Expansion-Fabric-${project.version}.jar")
+        destinationDirectory.set(file("${rootProject.projectDir}/build"))
     }
     shadowJar {
         configurations = listOf(shade)

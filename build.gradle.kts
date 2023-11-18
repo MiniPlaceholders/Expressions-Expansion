@@ -17,11 +17,19 @@ dependencies {
     implementation(projects.expressionsCommon)
     implementation(projects.expressionsVelocity)
     implementation(projects.expressionsPaper)
+    implementation(projects.expressionsSponge)
 }
 
 tasks {
     shadowJar {
         archiveFileName.set("Expressions-Expansion-${project.version}.jar")
+        archiveClassifier.set("")
+        doLast {
+            copy {
+                from(archiveFile)
+                into("${rootProject.projectDir}/build")
+            }
+        }
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     }
     build {
