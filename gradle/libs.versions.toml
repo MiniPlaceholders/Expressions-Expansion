@@ -1,5 +1,5 @@
 [versions]
-adventure = "4.14.0"
+adventure = "4.15.0"
 junit = "5.10.1"
 krypton = "0.60.3"
 blossom = "2.1.0"
