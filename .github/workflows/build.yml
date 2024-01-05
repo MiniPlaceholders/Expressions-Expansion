@@ -19,7 +19,7 @@ jobs:
         cache: 'gradle'
     - run: ./gradlew build --no-daemon
     - name: Upload build artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: MiniPlaceholders-Expressions-Expansion
         path: build/Expressions-*.jar
