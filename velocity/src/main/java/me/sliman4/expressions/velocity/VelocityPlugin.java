@@ -16,7 +16,7 @@ import org.slf4j.Logger;
 import java.nio.file.Path;
 
 @Plugin(
-        name = "Expressions-Expansion",
+        name = "MiniPlaceholders Expressions Expansion",
         id = "miniplaceholders-expressions-expansion",
         version = Constants.VERSION,
         authors = {"Sliman4", "4drian3d"},

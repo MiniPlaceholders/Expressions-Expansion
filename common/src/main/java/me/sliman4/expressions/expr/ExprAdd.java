@@ -3,7 +3,6 @@ package me.sliman4.expressions.expr;
 import io.github.miniplaceholders.api.Expansion;
 import me.sliman4.expressions.Expression;
 import me.sliman4.expressions.Utils;
-import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.Context;
 import net.kyori.adventure.text.minimessage.tag.Tag;
 import net.kyori.adventure.text.minimessage.tag.resolver.ArgumentQueue;
@@ -25,6 +24,6 @@ public final class ExprAdd implements Expression {
             }
             n += Utils.parseDouble(context, s);
         }
-        return Tag.selfClosingInserting(isFloat ? Component.text(n) : Component.text((int) Math.round(n)));
+        return Tag.preProcessParsed(isFloat ? Double.toString(n) : Integer.toString((int) Math.round(n)));
     }
 }

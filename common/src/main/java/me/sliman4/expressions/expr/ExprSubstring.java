@@ -24,6 +24,6 @@ public final class ExprSubstring implements Expression {
         }
         final int n = Utils.parseInt(context, s2);
         final int n2 = Utils.parseInt(context, s3);
-        return Tag.inserting(context.deserialize(s.substring(n, n2)));
+        return Tag.preProcessParsed(s.substring(n, n2));
     }
 }

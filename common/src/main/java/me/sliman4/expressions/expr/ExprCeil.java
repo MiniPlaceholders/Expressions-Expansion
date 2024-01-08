@@ -3,7 +3,6 @@ package me.sliman4.expressions.expr;
 import io.github.miniplaceholders.api.Expansion;
 import me.sliman4.expressions.Expression;
 import me.sliman4.expressions.Utils;
-import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.Context;
 import net.kyori.adventure.text.minimessage.tag.Tag;
 import net.kyori.adventure.text.minimessage.tag.resolver.ArgumentQueue;
@@ -21,6 +20,6 @@ public class ExprCeil implements Expression {
             throw context.newException("<expr_ceil> requires exactly 1 argument");
         }
         double n = Utils.parseDouble(context, s);
-        return Tag.selfClosingInserting(Component.text((int) Math.ceil(n)));
+        return Tag.preProcessParsed(Integer.toString((int) Math.ceil(n)));
     }
 }

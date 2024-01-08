@@ -22,7 +22,7 @@ dependencies {
 
 tasks {
     shadowJar {
-        archiveFileName.set("Expressions-Expansion-${project.version}.jar")
+        archiveFileName.set("MiniPlaceholders-Expressions-Expansion-${project.version}.jar")
         archiveClassifier.set("")
         doLast {
             copy {

@@ -3,7 +3,6 @@ package me.sliman4.expressions.expr;
 import io.github.miniplaceholders.api.Expansion;
 import me.sliman4.expressions.Expression;
 import me.sliman4.expressions.Utils;
-import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.Context;
 import net.kyori.adventure.text.minimessage.tag.Tag;
 import net.kyori.adventure.text.minimessage.tag.resolver.ArgumentQueue;
@@ -20,6 +19,6 @@ public final class ExprLength implements Expression {
         if (argumentQueue.hasNext()) {
             throw context.newException("<expr_length> requires exactly 1 argument");
         }
-        return Tag.selfClosingInserting(Component.text(s.length()));
+        return Tag.preProcessParsed(Integer.toString(s.length()));
     }
 }

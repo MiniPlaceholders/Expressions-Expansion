@@ -3,7 +3,6 @@ package me.sliman4.expressions.expr;
 import io.github.miniplaceholders.api.Expansion;
 import me.sliman4.expressions.Expression;
 import me.sliman4.expressions.Utils;
-import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.Context;
 import net.kyori.adventure.text.minimessage.tag.Tag;
 import net.kyori.adventure.text.minimessage.tag.resolver.ArgumentQueue;
@@ -20,6 +19,6 @@ public final class ExprConcat implements Expression {
         while (argumentQueue.hasNext()) {
             s.append(Utils.parseToPlainText(context, argumentQueue.pop().value()));
         }
-        return Tag.selfClosingInserting(Component.text(s.toString()));
+        return Tag.preProcessParsed(s.toString());
     }
 }
