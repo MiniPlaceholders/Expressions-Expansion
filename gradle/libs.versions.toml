@@ -37,7 +37,7 @@ version = { ref = "adventure" }
 [libraries.snakeyaml]
 group = "org.yaml"
 name = "snakeyaml"
-version = "2.2"
+version = "2.3"
 
 [libraries.junit-jupiter-api]
 group = "org.junit.jupiter"
