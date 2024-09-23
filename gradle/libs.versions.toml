@@ -86,4 +86,4 @@ minimessage = ["adventure-minimessage", "adventure-serializer-plain"]
 shadow = { id = "com.github.johnrengelman.shadow", version.ref = "shadow" }
 runpaper = { id = "xyz.jpenilla.run-paper", version = "2.2.3" }
 blossom = { id = "net.kyori.blossom", version.ref = "blossom" }
-idea-ext = { id = "org.jetbrains.gradle.plugin.idea-ext", version = "1.1.7" }
+idea-ext = { id = "org.jetbrains.gradle.plugin.idea-ext", version = "1.1.9" }
