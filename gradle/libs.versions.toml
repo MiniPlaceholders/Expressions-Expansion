@@ -6,7 +6,7 @@ shadow = "9.6.1"
 fabric-loader = "0.19.3"
 fabric-api = "0.135.0+1.21.10"
 minecraft = "1.21.10"
-adventurefabric = "6.8.0"
+adventurefabric = "7.1.1"
 
 [libraries.miniplaceholders]
 group = "io.github.miniplaceholders"
