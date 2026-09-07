@@ -15,12 +15,12 @@ tasks {
 subprojects {
     apply<JavaPlugin>()
     apply<ShadowPlugin>()
-    java.toolchain.languageVersion.set(JavaLanguageVersion.of(21))
+    java.toolchain.languageVersion.set(JavaLanguageVersion.of(25))
 
     tasks {
         withType<JavaCompile> {
             options.encoding = Charsets.UTF_8.name()
-            options.release.set(21)
+            options.release.set(25)
         }
         val external = listOf("common", "fabric")
         if (!external.any { project.name.contains(it) }) {
