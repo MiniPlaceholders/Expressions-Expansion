@@ -11,7 +11,7 @@ adventurefabric = "7.1.1"
 [libraries.miniplaceholders]
 group = "io.github.miniplaceholders"
 name = "miniplaceholders-api"
-version = "3.1.0"
+version = "3.2.0"
 
 [libraries.velocity-api]
 group = "com.velocitypowered"
