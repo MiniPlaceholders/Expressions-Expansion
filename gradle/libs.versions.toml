@@ -21,7 +21,7 @@ version = "3.5.1"
 [libraries.paper-api]
 group = "io.papermc.paper"
 name = "paper-api"
-version = "26.2.build.121-stable"
+version = "26.2.build.123-stable"
 
 [libraries.adventure-minimessage]
 group = "net.kyori"
